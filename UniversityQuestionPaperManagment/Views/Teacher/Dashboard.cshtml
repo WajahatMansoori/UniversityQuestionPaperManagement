@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Teacher Dashboard";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Total Courses</h5>
+                <p class="card-text fs-3">12</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">AI Reports</h5>
+                <p class="card-text fs-3">5</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Pending Papers</h5>
+                <p class="card-text fs-3">8</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">Attendance Issues</h5>
+                <p class="card-text fs-3">2</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <strong>Attendance Overview</strong>
+            </div>
+            <div class="card-body">
+                <canvas id="attendanceChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <strong>Grading Progress</strong>
+            </div>
+            <div class="card-body">
+                <p>Computer Science</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" style="width: 70%;">70%</div>
+                </div>
+                <p>Mathematics</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-primary" style="width: 45%;">45%</div>
+                </div>
+                <p>Physics</p>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" style="width: 90%;">90%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <strong>Moderator Feedback</strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Feedback</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maths II</td>
+                            <td>Excellent paper structure.</td>
+                            <td>Apr 10</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Try to include more MCQs.</td>
+                            <td>Apr 8</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>Recheck plagiarism section.</td>
+                            <td>Apr 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-light">
+                <strong>Recent Activities</strong>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <i class="fas fa-upload text-primary me-2"></i>
+                        Uploaded answer sheet for "Maths II"
+                        <span class="float-end text-muted">2 hrs ago</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-robot text-success me-2"></i>
+                        Reviewed AI analysis for Physics
+                        <span class="float-end text-muted">Yesterday</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-check-circle text-warning me-2"></i>
+                        Graded 6 papers in "CS"
+                        <span class="float-end text-muted">Apr 10</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-comment-dots text-danger me-2"></i>
+                        Feedback sent to Moderator - English
+                        <span class="float-end text-muted">Apr 9</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

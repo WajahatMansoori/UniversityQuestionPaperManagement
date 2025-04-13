@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Teacher Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .left-menu {
+            background-color: #2e3a59;
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 2rem;
+        }
+
+            .left-menu a {
+                color: #b8c2cc;
+                display: block;
+                padding: 12px 20px;
+                text-decoration: none;
+                font-size: 15px;
+            }
+
+                .left-menu a:hover,
+                .left-menu a.active {
+                    background-color: #3b4b70;
+                    color: #fff;
+                }
+
+        .card {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .right-panel {
+            background-color: #e9ecef;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+
+        .upload-box {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.04);
+        }
+
+        .teacher-header {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Menu -->
+            <div class="col-md-2 left-menu">
+                <div class="teacher-header">
+                    <img src="~/Content/images/pic.png" class="rounded-circle mb-2" width="80" height="80" />
+                    <div>Teacher Panel</div>
+                </div>
+
+                <a href="@Url.Action("Dashboard", "Teacher")"><i class="fas fa-home me-2"></i> Dashboard</a>
+                <a href="@Url.Action("Courses", "Teacher")"><i class="fas fa-book me-2"></i> Courses</a>
+                <a href="@Url.Action("AiAnalysis", "Teacher")"><i class="fas fa-brain me-2"></i> AI Analysis</a>
+                <a href="@Url.Action("AnalysisReport", "Teacher")"><i class="fas fa-chart-line me-2"></i> Analysis Report</a>
+                <a href="@Url.Action("ModeratorFeedback", "Teacher")"><i class="fas fa-comments me-2"></i> Moderator Feedback</a>
+                <a href="@Url.Action("PaperStatus", "Teacher")"><i class="fas fa-file-alt me-2"></i> Paper Status</a>
+                <a href="@Url.Action("Attendance", "Teacher")"><i class="fas fa-user-check me-2"></i> Attendance</a>
+                <a href="@Url.Action("Grading", "Teacher")"><i class="fas fa-star me-2"></i> Grading</a>
+
+                <a href="@Url.Action("Logout", "Auth")" class="mt-5 d-block text-danger text-center">
+                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                </a>
+            </div>
+
+            <!-- Main Content of Teacher template-->
+            <div class="col-md-8 p-4">
+                @RenderBody()
+            </div>
+
+            <!-- Right Side Upload -->
+            <div class="col-md-2 right-panel">
+                <div class="upload-box">
+                    <label>Private File</label>
+                    <input type="file" class="form-control mb-2" />
+                    <button class="btn btn-sm btn-primary w-100">Upload</button>
+
+                    <hr />
+
+                    <a href="/" class="btn btn-outline-secondary btn-sm w-100 mb-2">Site Home</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm w-100 mb-2">Setting</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        const attendanceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Maths', 'CS', 'Physics', 'English'],
+                datasets: [{
+                    label: 'Attendance %',
+                    data: [98, 90, 85, 95],
+                    backgroundColor: ['#0d6efd', '#198754', '#ffc107', '#dc3545']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100 }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

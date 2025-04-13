@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="row g-4 mt-2">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Total Users</h6>
+                    <h3>@ViewBag.TotalUsers</h3>
+                </div>
+                <i class="fas fa-users fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Teachers</h6>
+                    <h3>@ViewBag.TotalTeachers</h3>
+                </div>
+                <i class="fas fa-chalkboard-teacher fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-white p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Total Courses</h6>
+                    <h3>@ViewBag.TotalCourses</h3>
+                </div>
+                <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-danger text-white p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h6>Total Departments</h6>
+                    <h3>@ViewBag.TotalDepartments</h3>
+                </div>
+                <i class="fas fa-exclamation-circle fa-2x"></i>
+            </div>
+        </div>
+    </div>
+</div>
